@@ -1,10 +1,10 @@
 import './Home.css'
-import Corpo from './components/Corpo';
+import Header from './components/Header/Header';
 
 
 function Home() {
   return (
-      <Corpo />
+      <Header />
   );
 }
 
