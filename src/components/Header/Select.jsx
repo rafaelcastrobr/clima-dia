@@ -4,7 +4,6 @@ const SelectOpt = styled.select`
     margin: 0 1rem 0 2rem;
     height: 2rem;
     width: 35%;
-    background-color: azure;
     border: none;
     border-radius: 2px;
 `

@@ -22,25 +22,14 @@ const Container = styled.div`
     cursor: pointer;
   }
 `
-async function data () {
-  try {
-    const response = await fetch('https://apiprevmet3.inmet.gov.br/previsao/capitais') 
-    const data = await response.json();
-
-  }catch (error) {
-    console.log(error)
-  }
-}
-
-
 
 export default function Header() {
   return (
     <Container>
       <img src={logo} alt="logo" />
-      
+
       <Select /> 
-      {data()}
+      
     </Container>
   )
 }
