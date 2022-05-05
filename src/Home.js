@@ -1,14 +1,13 @@
 import './Home.css'
 import Header from './components/Header/Header';
-import Capitais from './api/api';
+import Body from './components/Body/Body';
 
 
 function Home() {
   return (
     <>
       <Header />
-      
-      <Capitais />
+      <Body />
     </>
   );
 }
