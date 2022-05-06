@@ -1,10 +1,15 @@
-import MinMax from "./Clima/MinMax"
+import ContentClima from "./Clima/ContentClima"
 
 export default function Body() {
   return (
     <div>
-      <MinMax />
-     
+      <div>
+        <ContentClima proxDia={0} />
+      </div>
+      <div>
+        <ContentClima proxDia={1} />
+      </div>
     </div>
+
   )
 }

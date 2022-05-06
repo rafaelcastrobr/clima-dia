@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import date from '../time/date';
-import period from '../time/period';
-
-export default function Capitais() {
-  const [capitais, setCapitais] = useState([])
+import { useState } from 'react';
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetch('https://apiprevmet3.inmet.gov.br/previsao/capitais')
-        .then(resp => resp.json())
-        .then(data => setCapitais(data['São Paulo'][date()][period()]))
-    };
+export default function Api() {
 
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    await fetch('https://apiprevmet3.inmet.gov.br/previsao/capitais')
+      .then(resp => resp.json())
+      .then(data => data['São Paulo'])
+   
+  };
 
-  return capitais
+
+
+  return fetchData();    
+
 }
 
+
+
 // capitais com manha nao exibe, precisa ser direto no na funcao setcapitais
+
+//['São Paulo'][`${dia}/${mes}/${ano}`][period()]
