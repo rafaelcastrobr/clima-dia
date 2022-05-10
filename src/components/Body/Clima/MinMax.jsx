@@ -1,8 +1,12 @@
-import Api from "../../../api/api"
+
 import data from "../../../time/date"
+import period from "../../../time/period"
+
 
 import styled from 'styled-components'
-import period from "../../../time/period"
+
+import { ApiContext } from "../../../api/api"
+import { useContext } from "react"
 
 const Container = styled.div`
   display: flex;
@@ -14,17 +18,11 @@ const Container = styled.div`
 
 
 export default function MinMax(props) {
-  //const proxDia = props.proxDia
-  const { dia, mes, ano } = data()
+  const { state: { temp_max }} = useContext(ApiContext)  
   
-  const { dia_semana, temp_max, temp_min } = Api()[`${dia}/${mes}/${ano}`][period()]
-
-
   return (
     <Container>
-      <p>{`${dia}/${mes}/${ano}`} - {dia_semana} - {period()}</p>
-      <p>Max: {temp_max}</p>
-      <p>Min: {temp_min}</p>
+      <p>Tem Max { temp_max }</p>
     </Container>
   )
 }

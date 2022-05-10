@@ -6,9 +6,7 @@ export default function Body() {
       <div>
         <ContentClima proxDia={0} />
       </div>
-      <div>
-        <ContentClima proxDia={1} />
-      </div>
+      
     </div>
 
   )
