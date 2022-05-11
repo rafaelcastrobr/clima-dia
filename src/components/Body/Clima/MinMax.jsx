@@ -1,8 +1,3 @@
-
-import data from "../../../time/date"
-import period from "../../../time/period"
-
-
 import styled from 'styled-components'
 
 import { ApiContext } from "../../../api/api"
@@ -18,11 +13,13 @@ const Container = styled.div`
 
 
 export default function MinMax(props) {
-  const { state: { temp_max }} = useContext(ApiContext)  
+  const { state: { dia_semana, data_escrita, capital, resumo, temp_max, temp_min }} = useContext(ApiContext)  
   
   return (
     <Container>
-      <p>Tem Max { temp_max }</p>
+      <p>{data_escrita} - {dia_semana}</p>
+      <p>Resumo: {resumo}</p>
+      <p>Temp Max {temp_max} / Temp Min {temp_min}</p>
     </Container>
   )
 }

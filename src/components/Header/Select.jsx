@@ -1,4 +1,6 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
+import { ApiContext } from '../../api/api'
 
 const SelectOpt = styled.select`
     margin: 0 1rem 0 2rem;
@@ -9,14 +11,26 @@ const SelectOpt = styled.select`
 `
 
 
+
+
 export default function Select() {
+
+  const { state: { capital }, dispatch, } = useContext(ApiContext)
+  console.log('dispatch: ', dispatch, capital);
+
+  function handleSelect(e) {
+    dispatch({ type: 'UPDATE', payload: e.target.value})
+  }
+
+
   return (
 
-    <SelectOpt>
-      <option value="0">SÃO PAULO</option>
-      <option value="0">RIO DE JANEIRO</option>
-      <option value="0">SALVADOR</option>
-      <option value="0">BELO HORIZONTE</option>
+    <SelectOpt defaultValue={"São Paulo"} onChange={handleSelect}>
+      <option value="Aracaju">ARACAJU</option>
+      <option value="São Paulo">SÃO PAULO</option>
+      <option value="Rio de Janeiro">RIO DE JANEIRO</option>
+      <option value="Salvador">SALVADOR</option>
+      <option value="Belo Horizonte">BELO HORIZONTE</option>
     </SelectOpt>
 
   )
