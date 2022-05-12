@@ -4,7 +4,6 @@ import reducer, { initial_state } from "./reducer";
 
 export const ApiContext = createContext();
 
-
 export default function ApiProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initial_state)
 
@@ -13,7 +12,7 @@ export default function ApiProvider({ children }) {
       .then(resp => resp.json())
       .then(data => {
 
-        dispatch({ type: 'API_UP', data: data[state.capital], tog: false })
+        dispatch({ type: 'API_UP', payload: {data: data[state.capital], tog: false}})
 
       })
   }

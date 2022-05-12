@@ -13,15 +13,16 @@ const Container = styled.div`
 
 
 export default function MinMax(props) {
-  const { state: { dia_semana, data_escrita, capital, resumo, temp_max, temp_min }} = useContext(ApiContext)  
+
+  const { state: { manha } } = useContext(ApiContext)
   
   return (
     <Container>
-      <p>{data_escrita} - {dia_semana}</p>
-      <p>Resumo: {resumo}</p>
-      <p>Temp Max {temp_max} / Temp Min {temp_min}</p>
+      
+      <div>
+        <p>{manha.resumo}</p>
+        
+      </div>
     </Container>
   )
 }
-
-//['São Paulo'][`${dia}/${mes}/${ano}`][period()]

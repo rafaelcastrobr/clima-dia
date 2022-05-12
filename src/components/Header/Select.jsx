@@ -19,7 +19,7 @@ export default function Select() {
   console.log('dispatch: ', dispatch, capital);
 
   function handleSelect(e) {
-    dispatch({ type: 'UPDATE', payload: e.target.value})
+    dispatch({ type: 'UPDATE', payload: {capital: e.target.value}})
   }
 
 
