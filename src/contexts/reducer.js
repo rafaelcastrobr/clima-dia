@@ -41,6 +41,7 @@ export default function reducer(state, action) {
       }
       const newNewState = {
         ...state,
+        periodo: newState.hoje[newState.periodo],
         manha: newState.hoje[Object.keys(newState.hoje)[0]],
         tarde: newState.hoje[Object.keys(newState.hoje)[1]],
         noite: newState.hoje[Object.keys(newState.hoje)[2]],

@@ -14,13 +14,13 @@ const Container = styled.div`
 
 export default function MinMax(props) {
 
-  const { state: { manha } } = useContext(ApiContext)
+  const { state: { periodo } } = useContext(ApiContext)
   
   return (
     <Container>
       
       <div>
-        <p>{manha.resumo}</p>
+        <p>{periodo.resumo}</p>
         
       </div>
     </Container>
