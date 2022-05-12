@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import styled from 'styled-components'
-import { ApiContext } from '../../api/api'
+import { ApiContext } from '../../contexts/ApiProvider'
 
 const SelectOpt = styled.select`
     margin: 0 1rem 0 2rem;

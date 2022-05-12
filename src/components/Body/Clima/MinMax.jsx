@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { ApiContext } from "../../../api/api"
+import { ApiContext } from '../../../contexts/ApiProvider'
 import { useContext } from "react"
 
 const Container = styled.div`

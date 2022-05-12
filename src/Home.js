@@ -1,15 +1,15 @@
 import './Home.css'
 import Header from './components/Header/Header';
 import Body from './components/Body/Body';
-import Api from './api/api';
+import ApiProvider from './contexts/ApiProvider';
 
 
 function Home() {
   return (
-    <Api>
+    <ApiProvider>
       <Header />
       <Body />
-    </Api>
+    </ApiProvider>
   );
 }
 
