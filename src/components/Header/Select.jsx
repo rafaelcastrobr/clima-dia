@@ -10,13 +10,9 @@ const SelectOpt = styled.select`
     border-radius: 2px;
 `
 
-
-
-
 export default function Select() {
 
-  const { state: { capital }, dispatch, } = useContext(ApiContext)
-  console.log('dispatch: ', dispatch, capital);
+  const { dispatch } = useContext(ApiContext)
 
   function handleSelect(e) {
     dispatch({ type: 'UPDATE', payload: {capital: e.target.value}})

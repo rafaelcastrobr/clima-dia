@@ -16,8 +16,7 @@ const Container = styled.div`
 
 export default function MinMax(props) {
 
-  const { state: { manha, tarde, noite, periodo } } = useContext(ApiContext)
-  const pe = period()
+  const { state: { manha, tarde, noite } } = useContext(ApiContext)
 
   return (
     <Container>

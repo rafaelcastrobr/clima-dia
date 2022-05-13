@@ -4,16 +4,14 @@ import data from "../time/date";
 
 export const initial_state = {
   capital: 'São Paulo',
-  periodo: {
-    periodo_hoje: '',
-  },
+  periodo: {},
   data_escrita: data()['dataEscrita'],
-  temp_max: '...',
-  temp_min: '...',
+  temp_max: '',
+  temp_min: '',
   dia_semana_Data: data()['dia_semana'],
-  resumo: '...',
+  resumo: '',
   toggle: true,
-  hoje: '...',
+  hoje: '',
   manha: {
     manha_hoje: '',
     manha_amanha: '',
@@ -57,6 +55,13 @@ export default function reducer(state, action) {
     case 'API_UP': {
       const newState = {
         ...state,
+        periodo: {
+          periodo_hoje: Object.keys(action.payload.data)[0],
+          periodo_amanha: Object.keys(action.payload.data)[1],
+          periodo_depoisM1: Object.keys(action.payload.data)[2],
+          periodo_depoisM2: Object.keys(action.payload.data)[3],
+          periodo_depoisM3: Object.keys(action.payload.data)[4]
+        },
         hoje: action.payload.data[Object.keys(action.payload.data)[0]],
         amanha: action.payload.data[Object.keys(action.payload.data)[1]],
         depoisM1: action.payload.data[Object.keys(action.payload.data)[2]],
