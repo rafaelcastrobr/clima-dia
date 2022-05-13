@@ -1,22 +1,12 @@
 
-import { useContext } from "react";
-import { ApiContext } from "../../../contexts/ApiProvider";
-import MinMax from "./MinMax";
+import PeriodClima from "./PeriodClima";
 
 
 export default function ContentClima(props) {
-  const { state: { tarde, noite } } = useContext(ApiContext)
 
 
   return (
-    <div>
-      <MinMax />
-      <h2>Tarde</h2>
-      {tarde.resumo}
-      <h2>Noite</h2>
-      {noite.resumo}
-      
-    </div>
+    <PeriodClima dia={props.dia} />
   )
 }
 //Object.keys(hoje)[0]

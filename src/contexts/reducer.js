@@ -4,7 +4,9 @@ import data from "../time/date";
 
 export const initial_state = {
   capital: 'São Paulo',
-  periodo: period(),
+  periodo: {
+    periodo_hoje: '',
+  },
   data_escrita: data()['dataEscrita'],
   temp_max: '...',
   temp_min: '...',
@@ -12,9 +14,18 @@ export const initial_state = {
   resumo: '...',
   toggle: true,
   hoje: '...',
-  manha: '...',
-  tarde: '...',
-  noite: '...',
+  manha: {
+    manha_hoje: '',
+    manha_amanha: '',
+  },
+  tarde: {
+    tarde_hoje: '',
+    tarde_amanha: '',
+  },
+  noite: {
+    noite_hoje: '',
+    noite_amanha: '',
+  },
 }
 
 export default function reducer(state, action) {
@@ -23,10 +34,22 @@ export default function reducer(state, action) {
       const newState = {
         ...state,
         capital: action.payload.capital,
-        resumo: '...',
-        manha: '...',
-        tarde: '...',
-        noite: '...',
+        resumo: '.',
+        periodo: {
+          periodo_hoje: '',
+        },
+        manha: {
+          manha_hoje: '',
+          manha_amanha: '',
+        },
+        tarde: {
+          tarde_hoje: '',
+          tarde_amanha: '',
+        },
+        noite: {
+          noite_hoje: '',
+          noite_amanha: '',
+        },
         toggle: true,
       }
       return newState;
@@ -35,19 +58,30 @@ export default function reducer(state, action) {
       const newState = {
         ...state,
         hoje: action.payload.data[Object.keys(action.payload.data)[0]],
-        amanha: action.payload.data[Object.keys(action.payload.data)[1]][state.periodo],
+        amanha: action.payload.data[Object.keys(action.payload.data)[1]],
+        depoisM1: action.payload.data[Object.keys(action.payload.data)[2]],
+        depoisM2: action.payload.data[Object.keys(action.payload.data)[3]],
+        depoisM3: action.payload.data[Object.keys(action.payload.data)[4]],
         toggle: action.payload.tog,
 
       }
-      const newNewState = {
-        ...state,
-        periodo: newState.hoje[newState.periodo],
-        manha: newState.hoje[Object.keys(newState.hoje)[0]],
-        tarde: newState.hoje[Object.keys(newState.hoje)[1]],
-        noite: newState.hoje[Object.keys(newState.hoje)[2]],
+      const apiNewState = {
+        ...newState,
+        manha: {
+          manha_hoje: newState.hoje[Object.keys(newState.hoje)[0]],
+          manha_amanha: newState.amanha[Object.keys(newState.amanha)[0]]
+        },
+        tarde: {
+          tarde_hoje: newState.hoje[Object.keys(newState.hoje)[1]],
+          tarde_amanha: newState.amanha[Object.keys(newState.amanha)[1]],
+        },
+        noite: {
+          noite_hoje: newState.hoje[Object.keys(newState.hoje)[2]],
+          noite_amanha: newState.amanha[Object.keys(newState.amanha)[2]],
+        },
         toggle: action.payload.tog,
       }
-      return newNewState;
+      return apiNewState;
     }
 
     default:
