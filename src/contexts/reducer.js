@@ -10,7 +10,6 @@ export const initial_state = {
   temp_min: '',
   dia_semana_Data: data()['dia_semana'],
   resumo: '',
-  toggle: true,
   hoje: '',
   depoisM1: '',
   depoisM2: '',
@@ -27,6 +26,8 @@ export const initial_state = {
     noite_hoje: '',
     noite_amanha: '',
   },
+  toggle: true,
+  loading: true,
 }
 
 export default function reducer(state, action) {
@@ -55,6 +56,7 @@ export default function reducer(state, action) {
           noite_amanha: '',
         },
         toggle: true,
+        loading: true,
       }
       return newState;
     }
@@ -91,6 +93,7 @@ export default function reducer(state, action) {
           noite_amanha: newState.amanha[Object.keys(newState.amanha)[2]],
         },
         toggle: action.payload.tog,
+        loading: false
       }
       return apiNewState;
     }

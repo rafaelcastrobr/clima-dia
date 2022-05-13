@@ -4,12 +4,15 @@ import { useContext } from "react"
 import { ApiContext } from "../../../contexts/ApiProvider"
 import period from "../../../time/period"
 
-import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
 
 
 const Box = styled.div`
-  display: flex;
+  display: grid;
   justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  column-gap: 3rem;
+  row-gap: 1rem;
+  padding: 20px;
 
   .boxContent {
     display: flex;
@@ -36,7 +39,7 @@ const Box = styled.div`
     }
 
     p {
-      padding: 0 5px;
+      padding: 0 3px;
       text-align: center;
       font-size: 12px;
 
@@ -109,54 +112,7 @@ export default function PeriodClima(props) {
           </div>
         </Box> : ''}
 
-      <Box>
-
-        {(props.dia === 'depoisM1') ?
-
-          <div className="boxContent">
-            <p className='pTitle'>{depoisM1.dia_semana}</p>
-            <p >{periodo.periodo_depoisM1}</p>
-            <img src={depoisM1.icone} alt={depoisM1.resumo} />
-            <p>{depoisM1.resumo}</p>
-            <div className='boxTemp'>
-              <p><span className='spanRed'><FaTemperatureHigh /></span> {depoisM1.temp_max}</p>
-              <p><span className='spanBlue'><FaTemperatureLow /></span> {depoisM1.temp_min}</p>
-            </div>
-          </div>
-
-          : ''}
-
-        {(props.dia === 'depoisM2') ?
-
-          <div className="boxContent">
-            <p className='pTitle'>{depoisM2.dia_semana}</p>
-            <p>{periodo.periodo_depoisM2}</p>
-            <img src={depoisM2.icone} alt={depoisM2.resumo} />
-            <p>{depoisM2.resumo}</p>
-            <div className='boxTemp'>
-              <p><span className='spanRed'><FaTemperatureHigh /></span> {depoisM2.temp_max}</p>
-              <p><span className='spanBlue'><FaTemperatureLow /></span> {depoisM2.temp_min}</p>
-            </div>
-          </div>
-
-          : ''}
-
-        {(props.dia === 'depoisM3') ?
-
-          <div className="boxContent">
-            <p className='pTitle'>{depoisM3.dia_semana}</p>
-            <p>{periodo.periodo_depoisM3}</p>
-            <img src={depoisM3.icone} alt={depoisM3.resumo} />
-            <p>{depoisM3.resumo}</p>
-            <div className='boxTemp'>
-              <p><span className='spanRed'><FaTemperatureHigh /></span> {depoisM3.temp_max}</p>
-              <p><span className='spanBlue'><FaTemperatureLow /></span> {depoisM3.temp_min}</p>
-            </div>
-          </div>
-
-          : ''}
-
-      </Box>
+     
 
     </>
   )

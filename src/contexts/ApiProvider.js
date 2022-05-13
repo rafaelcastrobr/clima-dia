@@ -12,7 +12,7 @@ export default function ApiProvider({ children }) {
       .then(resp => resp.json())
       .then(data => {
 
-        dispatch({ type: 'API_UP', payload: {data: data[state.capital], tog: false}})
+        dispatch({ type: 'API_UP', payload: {data: data[state.capital], tog: false, loading: false}})
 
       })
   }

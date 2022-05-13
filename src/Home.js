@@ -5,10 +5,13 @@ import ApiProvider from './contexts/ApiProvider';
 
 
 function Home() {
+  
   return (
     <ApiProvider>
+
       <Header />
       <Body />
+
     </ApiProvider>
   );
 }
