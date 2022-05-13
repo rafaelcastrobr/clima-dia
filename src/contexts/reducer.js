@@ -12,6 +12,9 @@ export const initial_state = {
   resumo: '',
   toggle: true,
   hoje: '',
+  depoisM1: '',
+  depoisM2: '',
+  depoisM3: '',
   manha: {
     manha_hoje: '',
     manha_amanha: '',
@@ -33,6 +36,9 @@ export default function reducer(state, action) {
         ...state,
         capital: action.payload.capital,
         resumo: '.',
+        depoisM1: '',
+        depoisM2: '',
+        depoisM3: '',
         periodo: {
           periodo_hoje: '',
         },
