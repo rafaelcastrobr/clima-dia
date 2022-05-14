@@ -75,11 +75,12 @@ export default function PeriodClima(props) {
             </div>
             : ''}
 
-          {(period() === 'manha' || 'tarde') ?
+          {(period() === 'manha' || period() === 'tarde') ?
             <div className="boxContent">
               <p className='pTitle'>Tarde</p>
               <img src={tarde.tarde_hoje.icone} alt={tarde.tarde_hoje.resumo} />
               <p>{tarde.tarde_hoje.resumo}</p>
+              {console.log(period())}
             </div>
             : ''}
 

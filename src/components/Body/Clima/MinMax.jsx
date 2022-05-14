@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
-import { BsMoisture } from 'react-icons/bs'
 
 import { ApiContext } from '../../../contexts/ApiProvider'
 import { useContext } from "react"
